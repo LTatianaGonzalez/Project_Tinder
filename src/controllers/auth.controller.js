@@ -79,7 +79,7 @@ export const registerCompany = async (req, res) => {
 
 
  export const login = async (req, res) => {
-    const { email, type, password } = req.body;
+    const { email, type } = req.body;
     const hash = req.body.password;
     let model;
 
@@ -89,7 +89,6 @@ export const registerCompany = async (req, res) => {
         const account = await model.findOne({
           where: {
             email,
-            password,
             status: 'activo'
           }
         })
@@ -112,5 +111,6 @@ export const registerCompany = async (req, res) => {
       }
     }
 
-    //res.send('register')
-   //}
+    // export const loginCompany = (req, res) => {
+//   res.send('register')
+// }
